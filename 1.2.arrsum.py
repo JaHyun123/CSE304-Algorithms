@@ -1,7 +1,7 @@
 def arrsum(n, S):
     result = 0
-
-    # Complete the code here
+    for i in range(n):
+        result += S[i]
 
     return result
 
@@ -22,8 +22,7 @@ print(f"{'-'*20}\n")
 # Example 3 - Your Custom Case 
 print("######Example 3######") 
 # Insert your example here
-# S = 
-raise NotImplementedError("Complete your example.")
+S = [10, 555, 44, 1, 15, 4]
 sum = arrsum(len(S), S)
 print("sum:", sum)
 print(f"{'-'*20}\n")

@@ -1,8 +1,17 @@
+import math
+
 def binsearch(n, S, x):
     low, high = 0, n-1
     location = -1
-    # Complete the code here
-    
+    while(low <= high and location == -1):
+        mid = math.floor((low + high) / 2)
+        if(x == S[mid]):
+            location = mid
+        elif (x < S[mid]):
+            high = mid - 1
+        else:
+            low = mid + 1
+
     return location
 
 # Example 1
@@ -24,9 +33,8 @@ print(f"{'-'*20}\n")
 # Example 3 - Your Custom Case 
 print("######Example 3######") 
 # Insert your example here
-# S = 
-# x = 
-raise NotImplementedError("Complete your example.")
+S = [1, 2, 5, 9, 15, 21, 33, 52, 100]
+x = 100
 location = binsearch(len(S), S, x)
 print("location:", location)
 print(f"{'-'*20}\n")

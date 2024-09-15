@@ -2,7 +2,9 @@ def matrixmult(n, A, B):
     C = [[0] * n for _ in range(n)]
     
     for i in range(n):
-        # Complete the code here
+        for j in range(n):
+            for k in range(n):
+                C[i][j] = C[i][j] + A[i][k] * B[k][j]
 
     return C
 
@@ -25,9 +27,8 @@ print(f"{'-'*20}\n")
 # Example 3 - Your Custom Case 
 print("######Example 3######") 
 # Insert your example here
-# A = 
-# B = 
-raise NotImplementedError("Complete your example.")
+A = [[3, 5],[1, 4]]
+B = [[2, 1],[10, 0]]
 C = matrixmult(len(A), A, B)
 print("C:", C)
 print(f"{'-'*20}\n")

@@ -1,8 +1,8 @@
 def seqsearch(n, S, x):
-    location = 0
-
-    # Complete the code here
-
+    location = -1
+    for i in range(n):
+        if(S[i] == x):
+            location = i
     return location
 
 # Example 1 - Best Case
@@ -32,9 +32,8 @@ print(f"{'-'*20}\n")
 # Example 4 - Your Custom Case
 print("######Example 4######") 
 # Insert your example here
-# S = 
-# x = 
-raise NotImplementedError("Complete your example.")
+S = [1, 7, 21, 44, 2, 4]
+x = 5
 location = seqsearch(len(S),S, x)
 print("location:", location)
 print(f"{'-'*20}\n")
