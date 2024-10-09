@@ -1,8 +1,14 @@
 def floyd2(n, W):
     P = [[-1] * (n) for _ in range(n)]
-    D = W
-    # Complete the code here
-    
+    D = [row[:] for row in W]  # Create a copy of W to avoid modifying the original matrix
+
+    for k in range(n):
+        for i in range(n):
+            for j in range(n):
+                if D[i][k] + D[k][j] < D[i][j]:
+                    D[i][j] = D[i][k] + D[k][j]
+                    P[i][j] = k
+
     return D, P
 
 def path(i, j):
@@ -36,10 +42,12 @@ path(4, 2)
 # # Example 2 - Your Custom Case
 # print("######Example 2 #######") 
 # # Insert your example here
-# n = 
-# W = 
+n = 4
+W = [[0,    5,      INF,    10],  # v0 -> vi
+     [INF,  0,      3,      INF],  # v1 -> vi
+     [INF,  INF,    0,      1],    # v2 -> vi
+     [INF,  INF,    INF,    0]]    # v3 -> vi
 
-raise NotImplementedError("Complete your example.")
 D, P = floyd2(n, W)
 print("D = ")
 for i in range(n):
@@ -48,4 +56,4 @@ print("P = ")
 for i in range(n):
     print(P[i])
 
-# path(?, ?)
+path(0,3)

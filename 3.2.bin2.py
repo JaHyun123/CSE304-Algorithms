@@ -2,7 +2,13 @@ import time
 
 def bin2(n, k):
     B = [[0] * (k + 1) for _ in range(n + 1)]
-    # Complete the code here
+    
+    for i in range(n + 1):
+        for j in range(min(i, k) + 1):
+            if j == 0 or j == i:
+                B[i][j] = 1
+            else:
+                B[i][j] = B[i - 1][j - 1] + B[i - 1][j]
 
     return B[n][k]
 
@@ -30,11 +36,10 @@ print(f"{'-'*20}\n")
 
 # Example 3 - Your Custom Case 
 print("######Example 3######") 
-# Insert your example here
-# n = 
-raise NotImplementedError("Complete your example.")
+n = 1024
+k = 30 
 stime = time.time()
-answer = bin2(n)
+answer = bin2(n,k)
 etime = time.time() - stime
 print("answer:", answer)
 print("execution time:", round(etime,5))
